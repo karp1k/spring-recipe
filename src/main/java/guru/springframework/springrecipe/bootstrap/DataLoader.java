@@ -55,7 +55,6 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
                 "\n" +
                 "Any and every kind of leftover can go inside a warm tortilla, usually with a healthy dose of pickled jalapenos. " +
                 "I can always sniff out a late-night snacker when the aroma of tortillas heating in a hot pan on the stove comes wafting through the house.");
-        tacoNotes.setRecipe(grilledChickenTacos);
         grilledChickenTacos.setNotes(tacoNotes);
         grilledChickenTacos = recipeRepository.save(grilledChickenTacos);
 
@@ -73,7 +72,6 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
                 "\n" +
                 "The word “guacamole”, and the dip, are both originally from Mexico, where avocados have been cultivated for thousands of years. " +
                 "The name is derived from two Aztec Nahuatl words—ahuacatl (avocado) and molli (sauce).");
-        guacamolNotes.setRecipe(perfectGuacamoleRecipe);
         perfectGuacamoleRecipe.setNotes(guacamolNotes);
 
         perfectGuacamoleRecipe = recipeRepository.save(perfectGuacamoleRecipe);
