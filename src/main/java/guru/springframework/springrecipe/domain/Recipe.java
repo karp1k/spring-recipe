@@ -11,7 +11,7 @@ import java.util.Set;
 public class Recipe {
 
     @Id
-    // GennerationType.IDENTITY supported by MySql, Oracle 12...
+    // GennerationType.IDENTITY supported by MySql, Oracle 12, H2...
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
