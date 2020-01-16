@@ -7,3 +7,4 @@ INSERT INTO unit_of_measure (description) values ('tablespoon');
 INSERT INTO unit_of_measure (description) values ('cup');
 INSERT INTO unit_of_measure (description) values ('pinch');
 INSERT INTO unit_of_measure (description) values ('ounce');
+INSERT INTO unit_of_measure (description) values ('dash');

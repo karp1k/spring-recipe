@@ -20,6 +20,7 @@ public class Recipe {
     private Integer servings;
     private String source;
     private String url;
+    @Lob
     private String directions;
     // EnumType.ORDINAL persist into db id of enum values
     // EnumType.STRING persist into db names (values) of enum (prefer)

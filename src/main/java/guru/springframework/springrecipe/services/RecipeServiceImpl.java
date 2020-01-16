@@ -1,0 +1,28 @@
+package guru.springframework.springrecipe.services;
+
+import guru.springframework.springrecipe.domain.Recipe;
+import guru.springframework.springrecipe.repositories.RecipeRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * @author kas
+ */
+@Service
+public class RecipeServiceImpl implements RecipeService {
+    private final RecipeRepository recipeRepository;
+
+    public RecipeServiceImpl(RecipeRepository recipeRepository) {
+        this.recipeRepository = recipeRepository;
+    }
+
+
+    @Override
+    public Set<Recipe> getAllRecipes() {
+        Set<Recipe> recipeSet = new HashSet<>();
+        recipeRepository.findAll().iterator().forEachRemaining(recipeSet::add);
+        return recipeSet;
+    }
+}
