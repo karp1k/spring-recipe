@@ -10,6 +10,7 @@ import java.util.Set;
  * @author kas
  */
 @Data
+@EqualsAndHashCode(exclude = {"recipeSet"})
 @Entity
 public class Category {
 
