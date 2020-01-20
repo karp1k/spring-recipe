@@ -5,10 +5,12 @@ import guru.springframework.springrecipe.repositories.CategoryRepository;
 import guru.springframework.springrecipe.repositories.IngredientRepository;
 import guru.springframework.springrecipe.repositories.RecipeRepository;
 import guru.springframework.springrecipe.repositories.UnitOfMeasureRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.Collections;
@@ -17,6 +19,7 @@ import java.util.HashSet;
 /**
  * @author kas
  */
+@Slf4j
 @Service
 public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -35,7 +38,9 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
     }
 
     @Override
+    @Transactional
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+        log.debug("ContextRefreshed Event: bootstrap data!");
         Category mexicanCategory = categoryRepository.findByDescription("mexican").get();
         UnitOfMeasure teaspoon = unitOfMeasureRepository.findByDescription("teaspoon").get();
         UnitOfMeasure tableSpoon = unitOfMeasureRepository.findByDescription("tablespoon").get();
