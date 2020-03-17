@@ -42,6 +42,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         log.debug("ContextRefreshed Event: bootstrap data!");
         Category mexicanCategory = categoryRepository.findByDescription("mexican").get();
+        Category americanCategory = categoryRepository.findByDescription("american").get();
         UnitOfMeasure teaspoon = unitOfMeasureRepository.findByDescription("teaspoon").get();
         UnitOfMeasure tableSpoon = unitOfMeasureRepository.findByDescription("tablespoon").get();
 
@@ -50,8 +51,10 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
         Recipe grilledChickenTacos = new Recipe();
         grilledChickenTacos.setDescription("Spicy Grilled Chicken Tacos");
         grilledChickenTacos.getCategorySet().add(mexicanCategory);
+        grilledChickenTacos.getCategorySet().add(americanCategory);
         grilledChickenTacos.setPrepTime(20);
         grilledChickenTacos.setServings(6);
+        grilledChickenTacos.setSource("simplyrecipes");
         grilledChickenTacos.setCookTime(15);
         grilledChickenTacos.setUrl("https://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/");
 
@@ -67,6 +70,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
         perfectGuacamoleRecipe.setDescription("How to Make Perfect Guacamole Recipe");
         perfectGuacamoleRecipe.setPrepTime(10);
         perfectGuacamoleRecipe.setServings(4);
+        perfectGuacamoleRecipe.setSource("simplyrecipes");
         perfectGuacamoleRecipe.setUrl("https://www.simplyrecipes.com/recipes/perfect_guacamole/");
         perfectGuacamoleRecipe.setCategorySet(Collections.singleton(mexicanCategory));
 
@@ -95,7 +99,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
         quarterOfSalt = ingredientRepository.save(quarterOfSalt);
 
         Ingredient oneTableSpoonOfLimeJuice = new Ingredient();
-        oneTableSpoonOfLimeJuice.setDescription("1 tablespoo fresh lime juice or lemon juice");
+        oneTableSpoonOfLimeJuice.setDescription("1 tablespoon fresh lime juice or lemon juice");
         oneTableSpoonOfLimeJuice.setAmount(BigDecimal.valueOf(1));
         oneTableSpoonOfLimeJuice.setUnitOfMeasure(tableSpoon);
         oneTableSpoonOfLimeJuice.setRecipe(perfectGuacamoleRecipe);
