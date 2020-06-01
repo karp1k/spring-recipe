@@ -34,6 +34,7 @@
                                     <th>ID</th>
                                     <th>Description</th>
                                     <th>Link</th>
+                                    <th>Update</th>
                                 </tr>
                                 </thead>
                                 <!-- th:remove="all"  remove blocks from runtime -->
@@ -50,7 +51,8 @@
                                 <tr th:each="recipe : ${recipes}">
                                     <td th:text="${recipe.id}"></td>
                                     <td th:text="${recipe.description}"></td>
-                                    <td><a th:text="${'link'}" th:href="@{'/recipe/show/' + ${recipe.id}}"></a></td>
+                                    <td><a th:text="${'show'}" th:href="@{'/recipe/' + ${recipe.id} + '/show'}"></a></td>
+                                    <td><a th:text="${'edit'}" th:href="@{'/recipe/' + ${recipe.id} + '/update'}"></a></td>
                                 </tr>
                             </table>
                         </div>
