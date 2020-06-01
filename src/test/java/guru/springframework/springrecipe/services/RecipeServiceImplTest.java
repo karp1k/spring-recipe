@@ -14,6 +14,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.anyLong;
 
 public class RecipeServiceImplTest {
 
@@ -44,5 +45,12 @@ public class RecipeServiceImplTest {
         assertEquals(1, recipeSet.size());
         // check how many times Mock method was called
         Mockito.verify(recipeRepository, Mockito.times(1)).findAll();
+    }
+
+    @Test
+    public void testDeleteById() {
+        Long id = 2L;
+        recipeRepository.deleteById(id);
+        Mockito.verify(recipeRepository, Mockito.times(1)).deleteById(anyLong());
     }
 }
