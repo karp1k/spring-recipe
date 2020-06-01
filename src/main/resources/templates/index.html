@@ -21,7 +21,7 @@
 <body>
     <div class="container-fluid" style="margin-top: 20px">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-6 offset-md-3">
                 <div class="card border-primary">
                     <div class="card-header">
                         <h1 class="card-title">My recipes!</h1>
@@ -38,18 +38,19 @@
                                 </thead>
                                 <!-- th:remove="all"  remove blocks from runtime -->
                                 <tr th:remove="all">
-                                    <td th:text="${recipe.id}"></td>
-                                    <td th:text="${recipe.description}"></td>
+                                    <td>1</td>
+                                    <td>some recipe</td>
+                                    <td><a>link</a></td>
                                 </tr>
                                 <tr th:remove="all">
-                                    <td th:text="${recipe.id}"></td>
-                                    <td th:text="${recipe.description}"></td>
+                                    <td>2</td>
+                                    <td>another recipe</td>
+                                    <td><a>link</a></td>
                                 </tr>
                                 <tr th:each="recipe : ${recipes}">
                                     <td th:text="${recipe.id}"></td>
                                     <td th:text="${recipe.description}"></td>
-                                    <td><a th:href="@{'/recipe/show/' + ${recipe.id}}">link</a></td>
-
+                                    <td><a th:text="${'link'}" th:href="@{'/recipe/show/' + ${recipe.id}}"></a></td>
                                 </tr>
                             </table>
                         </div>
