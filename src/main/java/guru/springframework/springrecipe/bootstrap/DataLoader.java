@@ -50,6 +50,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
         Recipe grilledChickenTacos = new Recipe();
         grilledChickenTacos.setDescription("Spicy Grilled Chicken Tacos");
+        grilledChickenTacos.setDifficulty(Difficulty.EASY);
         grilledChickenTacos.getCategorySet().add(mexicanCategory);
         grilledChickenTacos.getCategorySet().add(americanCategory);
         grilledChickenTacos.setPrepTime(20);
@@ -68,8 +69,10 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
         Recipe perfectGuacamoleRecipe = new Recipe();
         perfectGuacamoleRecipe.setDescription("How to Make Perfect Guacamole Recipe");
+        perfectGuacamoleRecipe.setDifficulty(Difficulty.HARD);
         perfectGuacamoleRecipe.setPrepTime(10);
         perfectGuacamoleRecipe.setServings(4);
+        perfectGuacamoleRecipe.setCookTime(10);
         perfectGuacamoleRecipe.setSource("simplyrecipes");
         perfectGuacamoleRecipe.setUrl("https://www.simplyrecipes.com/recipes/perfect_guacamole/");
         perfectGuacamoleRecipe.setCategorySet(Collections.singleton(mexicanCategory));
